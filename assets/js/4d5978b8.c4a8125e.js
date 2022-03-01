@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[5577],{4600:function(a){a.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/yarn-workspace","name":"yarn workspace","count":1,"permalink":"/blog/tags/yarn-workspace"}')}}]);
