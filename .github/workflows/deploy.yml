@@ -42,12 +42,21 @@ jobs:
       - name: action-slack
         uses: 8398a7/action-slack@v3
         with:
-          status: ${{ job.status }}
+          job_name: Deploy to GitHub Pages
+          status: custom
           author_name: action bot - deployment # default: 8398a7@action-slack
           # fields: repo,commit,message,author # default: repo,commit
-          fields: repo,message,commit,author,action,eventName,ref,workflow,job,took # default: repo,commit
+          fields: job,took,repo,commit # default: repo,commit
           mention: here
           if_mention: failure,cancelled
+          custom_payload: |
+            {
+              attachments: [{
+                color: '${{ job.status }}' === 'success' ? 'good' : '${{ job.status }}' === 'failure' ? 'danger' : 'warning',
+                text: `${process.env.AS_JOB}\n${process.env.AS_COMMIT} of ${process.env.AS_REPO}\n${{ job.status }} in ${process.env.AS_TOOK}`,
+              }]
+            }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }} # required
+          MATRIX_CONTEXT: ${{ toJson(matrix) }} # required
         if: always() # Pick up events even if the job fails or is canceled.
