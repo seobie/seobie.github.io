@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[6134],{1802:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/programmers/page/3","page":3,"postsPerPage":5,"totalPages":6,"totalCount":27,"previousPage":"/blog/tags/programmers/page/2","nextPage":"/blog/tags/programmers/page/4","blogDescription":"Blog","blogTitle":"Blog"}')}}]);

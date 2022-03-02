@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[802],{3508:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/apple","page":1,"postsPerPage":5,"totalPages":1,"totalCount":2,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);

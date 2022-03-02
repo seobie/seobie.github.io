@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2455],{7019:function(g){g.exports=JSON.parse('{"permalink":"/blog/tags/algorithm/page/2","page":2,"postsPerPage":5,"totalPages":6,"totalCount":27,"previousPage":"/blog/tags/algorithm","nextPage":"/blog/tags/algorithm/page/3","blogDescription":"Blog","blogTitle":"Blog"}')}}]);
