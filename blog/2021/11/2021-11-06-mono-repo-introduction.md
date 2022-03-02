@@ -100,9 +100,7 @@ _from https://classic.yarnpkg.com/_
 
 ### package.json 설정
 
-{: file='package.json'}
-
-```json
+```json title="package.json"
 {
   "name": "mono-repo",
   "version": "1.0.0",
@@ -122,9 +120,7 @@ _from https://classic.yarnpkg.com/_
 }
 ```
 
-{: file='packages/common/package.json'}
-
-```json
+```json title="packages/common/package.json"
 {
   "name": "@mono-repo/common", // yarn workspace 에서 쓰일 이름
   "version": "1.0.0",
@@ -141,9 +137,7 @@ _from https://classic.yarnpkg.com/_
 }
 ```
 
-{: file='packages/project-1/package.json'}
-
-```json
+```json title="packages/project-1/package.json"
 {
   "name": "@mono-repo/project-1", // yarn workspace 에서 쓰일 이름
   "version": "1.0.0",
@@ -180,9 +174,7 @@ $ yarn add -W -D react
 
 프로젝트가 모두 `typescript`를 사용하고 있으므로 `tsconfig.json`도 설정해주어야 한다.
 
-{: file='packages/project-1/tsconfig.paths.json'}
-
-```json
+```json title="packages/project-1/tsconfig.paths.json"
 {
   "compilerOptions": {
     "baseUrl": "./src",
@@ -194,9 +186,7 @@ $ yarn add -W -D react
 }
 ```
 
-{: file='packages/project-1/tsconfig.json'}
-
-```json
+```json title="packages/project-1/tsconfig.json"
 {
   "extends": "./tsconfig.paths.json",
   "compilerOptions": {
@@ -228,9 +218,7 @@ $ npm project-1 add @craco/craco
 
 `craco.config.js`파일을 프로젝트 루트(`packages/project-1`)에 생성하고 `package.json` 파일 안에 `scripts`를 다음과 같이 수정해준다.
 
-{: file='packages/project-1/package.json'}
-
-```diff
+```diff title="packages/project-1/package.json"
 "scripts": {
 -   "start": "react-scripts start",
 +   "start": "craco start",
@@ -241,9 +229,7 @@ $ npm project-1 add @craco/craco
 }
 ```
 
-{: file='packages/project-1/craco.config.js'}
-
-```js
+```js title="packages/project-1/craco.config.js"
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 const ForkTSCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 

@@ -24,9 +24,7 @@ velog에 있던 글을 그대로 옮겨와도 대부분 원래의 모양과 비�
 
 지금 블로그의 `deploy.sh`파일 안에는 다음과 같은 명령어가 실행이 되게 되는데 `htmlproofer`에서 이상한 문법을 감지하고 에러를 보낸 것이다.
 
-{: file='deploy.sh'}
-
-```text
+```text title="deploy.sh"
 test() {
   bundle exec htmlproofer \
     --disable-external \

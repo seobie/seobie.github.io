@@ -17,7 +17,6 @@ const config = {
   projectName: 'seobie.github.io', // Usually your repo name.
   deploymentBranch: 'gp-pages',
   trailingSlash: false,
-
   presets: [
     [
       'classic',
@@ -26,12 +25,15 @@ const config = {
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
           // Please change this to your repo.
-          editUrl: 'https://github.com/seobie/seobie.github.io/',
+          editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
         },
         blog: {
           showReadingTime: true,
           // Please change this to your repo.
-          editUrl: 'https://github.com/seobie/seobie.github.io/',
+          editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
+          blogSidebarTitle: 'All posts',
+          blogSidebarCount: 'ALL',
+          postsPerPage: 5,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -51,16 +53,21 @@ const config = {
         },
         items: [
           // {
+          //   label: 'Tutorial',
           //   type: 'doc',
           //   docId: 'intro',
           //   position: 'left',
-          //   label: 'Tutorial',
           // },
-          { to: '/blog', label: 'Blog', position: 'left' },
-          { to: '/blog/tags', label: 'Tags', position: 'left' },
+          { label: 'Blog', to: '/blog', position: 'left' },
+          { label: 'Tags', to: '/blog/tags', position: 'left' },
           {
-            href: 'https://github.com/seobie',
+            label: 'Playground',
+            to: '/playground',
+            position: 'left',
+          },
+          {
             label: 'GitHub',
+            href: 'https://github.com/seobie',
             position: 'right',
           },
         ],
@@ -98,8 +105,8 @@ const config = {
             title: 'More',
             items: [
               {
-                label: 'Blog',
-                to: '/blog',
+                label: 'Instagram',
+                href: 'https://www.instagram.com/x.eob',
               },
               {
                 label: 'GitHub',
