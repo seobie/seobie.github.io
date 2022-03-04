@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[1550],{9163:function(e){e.exports=JSON.parse('{"permalink":"/blog/tags/sass","page":1,"postsPerPage":5,"totalPages":1,"totalCount":1,"previousPage":null,"nextPage":null,"blogDescription":"Blog","blogTitle":"Blog"}')}}]);
