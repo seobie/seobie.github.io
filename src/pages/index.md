@@ -34,6 +34,6 @@ If you have any questions, feel free to contact me!
 
 <div align="right">
 
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fseobie&count_bg=%23FF8C8C&title_bg=%23555555&icon=react.svg&icon_color=%234AB3F7&title=console.log%28hits%29&edge_flat=false)](https://hits.seeyoufarm.com)
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fseobie.github.io&count_bg=%2361DAFB&title_bg=%23333333&icon=react.svg&icon_color=%2361DAFB&title=console.log%28hits%29&edge_flat=false)](https://hits.seeyoufarm.com)
 
 </div>
