@@ -28,6 +28,9 @@ const config = {
           editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
         },
         blog: {
+          blogTitle: "seob'log",
+          blogDescription:
+            '프론트엔드 개발을 하며 겪었던 문제나 스터디한 내용을 공유합니다. 사실은 아무거나 막올림',
           showReadingTime: true,
           // Please change this to your repo.
           editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
@@ -60,6 +63,7 @@ const config = {
           // },
           { label: 'Blog', to: '/blog', position: 'left' },
           { label: 'Tags', to: '/blog/tags', position: 'left' },
+          { label: 'Archive', to: '/blog/archive', position: 'left' },
           {
             label: 'Playground',
             to: '/playground',
