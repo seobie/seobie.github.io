@@ -1,5 +1,4 @@
 import React from 'react';
-import { ReactPage } from '@site/src/containers';
 import Link from '@docusaurus/Link';
 import Layout from '@theme/Layout';
 
