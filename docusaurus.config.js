@@ -1,6 +1,6 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
-
+require('dotenv').config();
 const lightCodeTheme = require('prism-react-renderer/themes/github');
 const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
@@ -124,6 +124,29 @@ const config = {
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: process.env.ALGORIA_API_KEY,
+
+        // Public API key: it is safe to commit it
+        apiKey: process.env.ALGORIA_SEARCH_API_KEY,
+
+        indexName: 'seobie',
+
+        // Optional: see doc section below
+        contextualSearch: true,
+
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. 여러 문서 사이트를 크롤링하고 window.location.href를 사용하여 해당 사이트로 이동하려는 경우에 유용한 알골리아 설정입니다.
+        // externalUrlRegex: 'external\\.com|domain\\.com',
+
+        // Optional: Algolia search parameters
+        // searchParameters: {},
+
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+        //... other Algolia params
       },
     }),
 };
