@@ -64,11 +64,11 @@ const config = {
           { label: 'Blog', to: '/blog', position: 'left' },
           { label: 'Tags', to: '/blog/tags', position: 'left' },
           { label: 'Archive', to: '/blog/archive', position: 'left' },
-          {
-            label: 'Playground',
-            to: '/playground',
-            position: 'left',
-          },
+          // {
+          //   label: 'Playground',
+          //   to: '/playground',
+          //   position: 'left',
+          // },
           {
             label: 'GitHub',
             href: 'https://github.com/seobie',
