@@ -28,7 +28,7 @@ const config = {
           editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
         },
         blog: {
-          blogTitle: "seob'log",
+          blogTitle: 'Blog',
           blogDescription:
             '프론트엔드 개발을 하며 겪었던 문제나 스터디한 내용을 공유합니다. 사실은 아무거나 막올림',
           showReadingTime: true,
@@ -62,6 +62,8 @@ const config = {
           //   position: 'left',
           // },
           { label: 'Blog', to: '/blog', position: 'left' },
+          { label: 'Algorithms', to: '/algorithms', position: 'left' },
+          // { label: 'Algorithms', to: '/algorithms', position: 'left' },
           { label: 'Tags', to: '/blog/tags', position: 'left' },
           { label: 'Archive', to: '/blog/archive', position: 'left' },
           // {
@@ -181,6 +183,34 @@ const config = {
       <%~ it.postBodyTags %>
     </body>
   </html>`,
+  plugins: [
+    [
+      '@docusaurus/plugin-content-blog',
+      {
+        /**
+         * 멀티 인스턴스 플러그인 적용 시 필수값으로 설정해야 합니다.
+         */
+        id: 'second-blog',
+        /**
+         * 사이트에서 블로그 연결 시 사용할 URL 경로를 설정합니다.
+         * *절대* URL 끝에 슬래시를 붙이지 마세요.
+         */
+        routeBasePath: 'algorithms',
+        /**
+         * 사이트 디렉터리 기준으로 상대 경로를 지정합니다.
+         */
+        path: './algorithms',
+        blogTitle: 'Algorithms',
+        blogDescription: '알고리즘 올리기 전용',
+        showReadingTime: true,
+        // Please change this to your repo.
+        editUrl: 'https://github.com/seobie/seobie.github.io/tree/main/',
+        blogSidebarTitle: 'All posts',
+        blogSidebarCount: 'ALL',
+        postsPerPage: 10,
+      },
+    ],
+  ],
 };
 
 module.exports = config;
