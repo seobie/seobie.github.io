@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[8926],{9010:function(o){o.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/mono-repo","name":"mono-repo","count":1,"permalink":"/blog/tags/mono-repo"}')}}]);

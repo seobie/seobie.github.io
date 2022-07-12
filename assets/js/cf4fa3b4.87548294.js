@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[5116],{3872:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/silicon","name":"silicon","count":2,"permalink":"/blog/tags/silicon"}')}}]);

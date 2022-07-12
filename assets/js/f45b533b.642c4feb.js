@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2645],{3491:function(s){s.exports=JSON.parse('{"allTagsPath":"/blog/tags","slug":"/blog/tags/oh-my-zsh","name":"oh-my-zsh","count":1,"permalink":"/blog/tags/oh-my-zsh"}')}}]);
