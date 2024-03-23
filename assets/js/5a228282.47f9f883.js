@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2273],{4095:function(a){a.exports=JSON.parse('{"label":"kakao","permalink":"/algorithms/tags/kakao","allTagsPath":"/algorithms/tags","count":7}')}}]);

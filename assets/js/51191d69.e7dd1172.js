@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[7877],{7033:function(l){l.exports=JSON.parse('{"label":"level2","permalink":"/algorithms/tags/level-2","allTagsPath":"/algorithms/tags","count":5}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2088],{6118:s=>{s.exports=JSON.parse('{"label":"zsh","permalink":"/blog/tags/zsh","allTagsPath":"/blog/tags","count":1,"unlisted":false}')}}]);

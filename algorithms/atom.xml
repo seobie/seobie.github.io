@@ -9,10 +9,46 @@
     <icon>https://seobie.github.io/img/favicon.ico</icon>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv2] 가장 큰 수]]></title>
-        <id>[프로그래머스-lv2]-가장-큰-수</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv2]-가장-큰-수</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv2]-가장-큰-수"/>
         <updated>2021-12-18T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[정렬 \> 가장 큰 수]]></summary>
+        <content type="html"><![CDATA[<p>정렬 &gt; 가장 큰 수</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>0 또는 양의 정수가 주어졌을 때, 정수를 이어 붙여 만들 수 있는 가장 큰 수를 알아내 주세요.</p>
+<p>예를 들어, 주어진 정수가 [6, 10, 2]라면 [6102, 6210, 1062, 1026, 2610, 2106]를 만들 수 있고, 이중 가장 큰 수는 6210입니다.</p>
+<p>0 또는 양의 정수가 담긴 배열 numbers가 매개변수로 주어질 때, 순서를 재배치하여 만들 수 있는 가장 큰 수를 문자열로 바꾸어 return 하도록 solution 함수를 작성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>numbers의 길이는 1 이상 100,000 이하입니다.</li>
+<li>numbers의 원소는 0 이상 1,000 이하입니다.</li>
+<li>정답이 너무 클 수 있으니 문자열로 바꾸어 return 합니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>numbers</th><th>return</th></tr></thead><tbody><tr><td>[6, 10, 2]</td><td>"6210"</td></tr><tr><td>[3, 30, 34, 5, 9]</td><td>"9534330"</td></tr></tbody></table>
+<hr>
+<p>※ 공지 - 2021년 10월 20일 테스트케이스가 추가되었습니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(numbers) {
+  const answer = numbers
+    .sort((a, b) =&gt; Number(`${b}${a}`) - Number(`${a}${b}`))
+    .join('');
+  return answer == 0 ? '0' : answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(numbers) {
+  var answer = numbers
+    .map((v) =&gt; v + '')
+    .sort((a, b) =&gt; (b + a) * 1 - (a + b) * 1)
+    .join('');
+
+  return answer[0] === '0' ? '0' : answer;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -24,10 +60,107 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv2] 소수 찾기]]></title>
-        <id>[프로그래머스-lv2]-소수-찾기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv2]-소수-찾기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv2]-소수-찾기"/>
         <updated>2021-12-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[완전탐색 \> 소수 찾기]]></summary>
+        <content type="html"><![CDATA[<p>완전탐색 &gt; 소수 찾기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>한자리 숫자가 적힌 종이 조각이 흩어져있습니다. 흩어진 종이 조각을 붙여 소수를 몇 개 만들 수 있는지 알아내려 합니다.</p>
+<p>각 종이 조각에 적힌 숫자가 적힌 문자열 numbers가 주어졌을 때, 종이 조각으로 만들 수 있는 소수가 몇 개인지 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>numbers는 길이 1 이상 7 이하인 문자열입니다.</li>
+<li>numbers는 0~9까지 숫자만으로 이루어져 있습니다.</li>
+<li>"013"은 0, 1, 3 숫자가 적힌 종이 조각이 흩어져있다는 의미입니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>numbers</th><th>return</th></tr></thead><tbody><tr><td>"17"</td><td>3</td></tr><tr><td>"011"</td><td>2</td></tr></tbody></table>
+<h2 id="입출력-예에-대한-설명">입출력 예에 대한 설명</h2>
+<h3 id="예제-1">예제 #1</h3>
+<p>[1, 7]으로는 소수 [7, 17, 71]를 만들 수 있습니다.</p>
+<h3 id="예제-2">예제 #2</h3>
+<p>[0, 1, 1]으로는 소수 [11, 101]를 만들 수 있습니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">const isPrime = (number) =&gt; {
+  if (number === 2) return true;
+  for (let i = 2; i &lt;= number / 2; i++) {
+    if (number % i === 0) {
+      return false;
+    }
+  }
+  return true;
+};
+
+const getPermutations = function (arr, selectNumber) {
+  const results = [];
+  if (selectNumber === 1) return arr;
+
+  arr.forEach((fixed, index, origin) =&gt; {
+    const rest = [...origin.slice(0, index), ...origin.slice(index + 1)];
+    const permutations = getPermutations(rest, selectNumber - 1);
+    const attached = permutations.map((el) =&gt; [fixed, ...el].join(''));
+    results.push(...attached);
+  });
+
+  return results;
+};
+
+function solution(numbers) {
+  const nums = numbers.split('');
+  let permutations = [];
+  for (let i = 1; i &lt;= nums.length; i++) {
+    permutations = [...permutations, ...getPermutations(nums, i)];
+  }
+  const answer = [...new Set(permutations.map((el) =&gt; Number(el)))].filter(
+    (el) =&gt; el &gt; 1 &amp;&amp; isPrime(el)
+  ).length;
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(numbers) {
+  var answer = 0;
+
+  var n = numbers.split('');
+  var nums = new Set();
+  combi(n, '');
+
+  function combi(a, s) {
+    if (s.length &gt; 0) {
+      if (nums.has(Number(s)) === false) {
+        nums.add(Number(s));
+        console.log(Number(s));
+        if (chkPrime(Number(s))) {
+          answer++;
+        }
+      }
+    }
+    if (a.length &gt; 0) {
+      for (var i = 0; i &lt; a.length; i++) {
+        var t = a.slice(0);
+        t.splice(i, 1);
+        //console.log(t)
+        combi(t, s + a[i]);
+      }
+    }
+  }
+
+  function chkPrime(num) {
+    if (num &lt; 2) return false;
+    if (num === 2) return true;
+    for (var i = 2; i &lt;= Math.sqrt(num); i++) {
+      if (num % i === 0) return false;
+    }
+    return true;
+  }
+
+  return answer;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -39,10 +172,57 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv2] 카펫]]></title>
-        <id>[프로그래머스-lv2]-카펫</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv2]-카펫</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv2]-카펫"/>
         <updated>2021-12-17T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[완전탐색 \> 카펫]]></summary>
+        <content type="html"><![CDATA[<p>완전탐색 &gt; 카펫</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>Leo는 카펫을 사러 갔다가 아래 그림과 같이 중앙에는 노란색으로 칠해져 있고 테두리 1줄은 갈색으로 칠해져 있는 격자 모양 카펫을 봤습니다.</p>
+<p><img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/b1ebb809-f333-4df2-bc81-02682900dc2d/carpet.png" alt="img"></p>
+<p>Leo는 집으로 돌아와서 아까 본 카펫의 노란색과 갈색으로 색칠된 격자의 개수는 기억했지만, 전체 카펫의 크기는 기억하지 못했습니다.</p>
+<p>Leo가 본 카펫에서 갈색 격자의 수 brown, 노란색 격자의 수 yellow가 매개변수로 주어질 때 카펫의 가로, 세로 크기를 순서대로 배열에 담아 return 하도록 solution 함수를 작성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>갈색 격자의 수 brown은 8 이상 5,000 이하인 자연수입니다.</li>
+<li>노란색 격자의 수 yellow는 1 이상 2,000,000 이하인 자연수입니다.</li>
+<li>카펫의 가로 길이는 세로 길이와 같거나, 세로 길이보다 깁니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>brown</th><th>yellow</th><th>return</th></tr></thead><tbody><tr><td>10</td><td>2</td><td>[4, 3]</td></tr><tr><td>8</td><td>1</td><td>[3, 3]</td></tr><tr><td>24</td><td>24</td><td>[8, 6]</td></tr></tbody></table>
+<p><a href="https://hsin.hr/coci/archive/2010_2011/contest4_tasks.pdf">출처</a></p>
+<p>※ 공지 - 2020년 2월 3일 테스트케이스가 추가되었습니다.
+※ 공지 - 2020년 5월 11일 웹접근성을 고려하여 빨간색을 노란색으로 수정하였습니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(brown, yellow) {
+  const BMaxWidth = (brown - 2) / 2;
+  const YMaxWidth = BMaxWidth - 2;
+  let YHeight = 1;
+  for (let i = YMaxWidth; i &gt; YMaxWidth / 2; i--) {
+    if (i * YHeight === yellow) {
+      return [i + 2, YHeight + 2];
+    } else {
+      YHeight += 1;
+    }
+  }
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(brown, red) {
+  var answer = [];
+  for (var i = 3; i &lt;= (brown + red) / i; i++) {
+    var x = Math.floor((brown + red) / i);
+    if ((x - 2) * (i - 2) === red) {
+      break;
+    }
+  }
+
+  return [x, i];
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -54,10 +234,78 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] K번째수]]></title>
-        <id>[프로그래머스-lv1]-K번째수</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-K번째수</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-K번째수"/>
         <updated>2021-12-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[정렬 \> K번째수]]></summary>
+        <content type="html"><![CDATA[<p>정렬 &gt; K번째수</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>배열 array의 i번째 숫자부터 j번째 숫자까지 자르고 정렬했을 때, k번째에 있는 수를 구하려 합니다.</p>
+<p>예를 들어 array가 [1, 5, 2, 6, 3, 7, 4], i = 2, j = 5, k = 3이라면</p>
+<ol>
+<li>array의 2번째부터 5번째까지 자르면 [5, 2, 6, 3]입니다.</li>
+<li>1에서 나온 배열을 정렬하면 [2, 3, 5, 6]입니다.</li>
+<li>2에서 나온 배열의 3번째 숫자는 5입니다.</li>
+</ol>
+<p>배열 array, [i, j, k]를 원소로 가진 2차원 배열 commands가 매개변수로 주어질 때, commands의 모든 원소에 대해 앞서 설명한 연산을 적용했을 때 나온 결과를 배열에 담아 return 하도록 solution 함수를 작성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>array의 길이는 1 이상 100 이하입니다.</li>
+<li>array의 각 원소는 1 이상 100 이하입니다.</li>
+<li>commands의 길이는 1 이상 50 이하입니다.</li>
+<li>commands의 각 원소는 길이가 3입니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>array</th><th>commands</th><th>return</th></tr></thead><tbody><tr><td>[1, 5, 2, 6, 3, 7, 4]</td><td>[[2, 5, 3], [4, 4, 1], [1, 7, 3]]</td><td>[5, 6, 3]</td></tr></tbody></table>
+<h2 id="입출력-예에-대한-설명">입출력 예에 대한 설명</h2>
+<p>[1, 5, 2, 6, 3, 7, 4]를 2번째부터 5번째까지 자른 후 정렬합니다. [2, 3, 5, 6]의 세 번째 숫자는 5입니다.
+[1, 5, 2, 6, 3, 7, 4]를 4번째부터 4번째까지 자른 후 정렬합니다. [6]의 첫 번째 숫자는 6입니다.
+[1, 5, 2, 6, 3, 7, 4]를 1번째부터 7번째까지 자릅니다. [1, 2, 3, 4, 5, 6, 7]의 세 번째 숫자는 3입니다.</p>
+<p><a href="https://neerc.ifmo.ru/subregions/northern.html">출처</a></p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(array, commands) {
+  return commands.map(
+    ([i, j, k]) =&gt; array.slice(i - 1, j).sort((a, b) =&gt; a - b)[k - 1]
+  );
+}
+</code></pre>
+<h3 id="좋아요를-많이-받은-답">좋아요를 많이 받은 답</h3>
+<pre><code class="language-js">var solution = (_, $) =&gt;
+  _.find(
+    (_) =&gt; !$[_]--,
+    $.map((_) =&gt; ($[_] = ($[_] | 0) + 1))
+  );
+</code></pre>
+<pre><code class="language-js">function solution(participant, completion) {
+  /*
+    for(let i in participant) {
+        if(completion.includes(participant[i]) == false) return participant[i];
+        completion.splice(completion.indexOf(participant[i]), 1);
+    }
+    */
+
+  participant.sort();
+  completion.sort();
+
+  for (let i in participant) {
+    if (participant[i] !== completion[i]) return participant[i];
+  }
+}
+</code></pre>
+<pre><code class="language-js">function solution(participant, completion) {
+  var dic = completion.reduce(
+    (obj, t) =&gt; ((obj[t] = obj[t] ? obj[t] + 1 : 1), obj),
+    {}
+  );
+  return participant.find((t) =&gt; {
+    if (dic[t]) dic[t] = dic[t] - 1;
+    else return true;
+  });
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -69,10 +317,82 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 완주하지 못한 선수]]></title>
-        <id>[프로그래머스-lv1]-완주하지-못한-선수</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-완주하지-못한-선수</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-완주하지-못한-선수"/>
         <updated>2021-12-09T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[해시 \> 완주하지 못한 선수]]></summary>
+        <content type="html"><![CDATA[<p>해시 &gt; 완주하지 못한 선수</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>수많은 마라톤 선수들이 마라톤에 참여하였습니다. 단 한 명의 선수를 제외하고는 모든 선수가 마라톤을 완주하였습니다.</p>
+<p>마라톤에 참여한 선수들의 이름이 담긴 배열 participant와 완주한 선수들의 이름이 담긴 배열 completion이 주어질 때, 완주하지 못한 선수의 이름을 return 하도록 solution 함수를 작성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>마라톤 경기에 참여한 선수의 수는 1명 이상 100,000명 이하입니다.</li>
+<li>completion의 길이는 participant의 길이보다 1 작습니다.</li>
+<li>참가자의 이름은 1개 이상 20개 이하의 알파벳 소문자로 이루어져 있습니다.</li>
+<li>참가자 중에는 동명이인이 있을 수 있습니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>participant</th><th>completion</th><th>return</th></tr></thead><tbody><tr><td>["leo", "kiki", "eden"]</td><td>["eden", "kiki"]</td><td>"leo"</td></tr><tr><td>["marina", "josipa", "nikola", "vinko", "filipa"]</td><td>["josipa", "filipa", "marina", "nikola"]</td><td>"vinko"</td></tr><tr><td>["mislav", "stanko", "mislav", "ana"]</td><td>["stanko", "ana", "mislav"]</td><td>"mislav"</td></tr></tbody></table>
+<h2 id="입출력-예에-대한-설명">입출력 예에 대한 설명</h2>
+<h3 id="예제-1">예제 #1</h3>
+<p>"leo"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+<h3 id="예제-2">예제 #2</h3>
+<p>"vinko"는 참여자 명단에는 있지만, 완주자 명단에는 없기 때문에 완주하지 못했습니다.</p>
+<h3 id="예제-3">예제 #3</h3>
+<p>"mislav"는 참여자 명단에는 두 명이 있지만, 완주자 명단에는 한 명밖에 없기 때문에 한명은 완주하지 못했습니다.</p>
+<p><a href="https://hsin.hr/coci/archive/2014_2015/contest2_tasks.pdf">출처</a></p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(participant, completion) {
+  let answer = '';
+  participant.sort();
+  completion.sort();
+  for (let i = 0; i &lt; participant.length; i++) {
+    if (participant[i] !== completion[i]) {
+      answer = participant[i];
+      break;
+    }
+  }
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-많이-받은-답">좋아요를 많이 받은 답</h3>
+<pre><code class="language-js">var solution = (_, $) =&gt;
+  _.find(
+    (_) =&gt; !$[_]--,
+    $.map((_) =&gt; ($[_] = ($[_] | 0) + 1))
+  );
+</code></pre>
+<pre><code class="language-js">function solution(participant, completion) {
+  /*
+    for(let i in participant) {
+        if(completion.includes(participant[i]) == false) return participant[i];
+        completion.splice(completion.indexOf(participant[i]), 1);
+    }
+    */
+
+  participant.sort();
+  completion.sort();
+
+  for (let i in participant) {
+    if (participant[i] !== completion[i]) return participant[i];
+  }
+}
+</code></pre>
+<pre><code class="language-js">function solution(participant, completion) {
+  var dic = completion.reduce(
+    (obj, t) =&gt; ((obj[t] = obj[t] ? obj[t] + 1 : 1), obj),
+    {}
+  );
+  return participant.find((t) =&gt; {
+    if (dic[t]) dic[t] = dic[t] - 1;
+    else return true;
+  });
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -84,10 +404,109 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv2] 오픈채팅방]]></title>
-        <id>[프로그래머스-lv2]-오픈채팅방</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv2]-오픈채팅방</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv2]-오픈채팅방"/>
         <updated>2021-12-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2019 KAKAO BLIND RECRUITMENT \> 오픈채팅방]]></summary>
+        <content type="html"><![CDATA[<p>2019 KAKAO BLIND RECRUITMENT &gt; 오픈채팅방</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>카카오톡 오픈채팅방에서는 친구가 아닌 사람들과 대화를 할 수 있는데, 본래 닉네임이 아닌 가상의 닉네임을 사용하여 채팅방에 들어갈 수 있다.</p>
+<p>신입사원인 김크루는 카카오톡 오픈 채팅방을 개설한 사람을 위해, 다양한 사람들이 들어오고, 나가는 것을 지켜볼 수 있는 관리자창을 만들기로 했다. 채팅방에 누군가 들어오면 다음 메시지가 출력된다.</p>
+<p>"[닉네임]님이 들어왔습니다."</p>
+<p>채팅방에서 누군가 나가면 다음 메시지가 출력된다.</p>
+<p>"[닉네임]님이 나갔습니다."</p>
+<p>채팅방에서 닉네임을 변경하는 방법은 다음과 같이 두 가지이다.</p>
+<ul>
+<li>채팅방을 나간 후, 새로운 닉네임으로 다시 들어간다.</li>
+<li>채팅방에서 닉네임을 변경한다.</li>
+</ul>
+<p>닉네임을 변경할 때는 기존에 채팅방에 출력되어 있던 메시지의 닉네임도 전부 변경된다.</p>
+<p>예를 들어, 채팅방에 "Muzi"와 "Prodo"라는 닉네임을 사용하는 사람이 순서대로 들어오면 채팅방에는 다음과 같이 메시지가 출력된다.</p>
+<p>"Muzi님이 들어왔습니다."
+"Prodo님이 들어왔습니다."</p>
+<p>채팅방에 있던 사람이 나가면 채팅방에는 다음과 같이 메시지가 남는다.</p>
+<p>"Muzi님이 들어왔습니다."
+"Prodo님이 들어왔습니다."
+"Muzi님이 나갔습니다."</p>
+<p>Muzi가 나간후 다시 들어올 때, Prodo 라는 닉네임으로 들어올 경우 기존에 채팅방에 남아있던 Muzi도 Prodo로 다음과 같이 변경된다.</p>
+<p>"Prodo님이 들어왔습니다."
+"Prodo님이 들어왔습니다."
+"Prodo님이 나갔습니다."
+"Prodo님이 들어왔습니다."</p>
+<p>채팅방은 중복 닉네임을 허용하기 때문에, 현재 채팅방에는 Prodo라는 닉네임을 사용하는 사람이 두 명이 있다. 이제, 채팅방에 두 번째로 들어왔던 Prodo가 Ryan으로 닉네임을 변경하면 채팅방 메시지는 다음과 같이 변경된다.</p>
+<p>"Prodo님이 들어왔습니다."
+"Ryan님이 들어왔습니다."
+"Prodo님이 나갔습니다."
+"Prodo님이 들어왔습니다."</p>
+<p>채팅방에 들어오고 나가거나, 닉네임을 변경한 기록이 담긴 문자열 배열 record가 매개변수로 주어질 때, 모든 기록이 처리된 후, 최종적으로 방을 개설한 사람이 보게 되는 메시지를 문자열 배열 형태로 return 하도록 solution 함수를 완성하라.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>record는 다음과 같은 문자열이 담긴 배열이며, 길이는 <code>1</code> 이상 <code>100,000</code> 이하이다.</li>
+<li>다음은 record에 담긴 문자열에 대한 설명이다.<!-- -->
+<ul>
+<li>모든 유저는 [유저 아이디]로 구분한다.</li>
+<li>[유저 아이디] 사용자가 [닉네임]으로 채팅방에 입장 - "Enter [유저 아이디] [닉네임]" (ex. "Enter uid1234 Muzi")</li>
+<li>[유저 아이디] 사용자가 채팅방에서 퇴장 - "Leave [유저 아이디]" (ex. "Leave uid1234")</li>
+<li>[유저 아이디] 사용자가 닉네임을 [닉네임]으로 변경 - "Change [유저 아이디] [닉네임]" (ex. "Change uid1234 Muzi")</li>
+<li>첫 단어는 Enter, Leave, Change 중 하나이다.</li>
+<li>각 단어는 공백으로 구분되어 있으며, 알파벳 대문자, 소문자, 숫자로만 이루어져있다.</li>
+<li>유저 아이디와 닉네임은 알파벳 대문자, 소문자를 구별한다.</li>
+<li>유저 아이디와 닉네임의 길이는 <code>1</code> 이상 <code>10</code> 이하이다.</li>
+<li>채팅방에서 나간 유저가 닉네임을 변경하는 등 잘못 된 입력은 주어지지 않는다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>record</th><th>result</th></tr></thead><tbody><tr><td>["Enter uid1234 Muzi", "Enter uid4567 Prodo","Leave uid1234","Enter uid1234 Prodo","Change uid4567 Ryan"]</td><td>["Prodo님이 들어왔습니다.", "Ryan님이 들어왔습니다.", "Prodo님이 나갔습니다.", "Prodo님이 들어왔습니다."]</td></tr></tbody></table>
+<h2 id="입출력-예에-대한-설명">입출력 예에 대한 설명</h2>
+<h3 id="입출력-예-1">입출력 예 #1</h3>
+<p>문제의 설명과 같다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(record) {
+  const ids = {};
+  const split = record
+    .map((el) =&gt; el.split(' '))
+    .filter(([state, id, name]) =&gt; {
+      if (state === 'Enter' || state === 'Change') ids[id] = name;
+      return state !== 'Change';
+    });
+
+  return split.map(([state, id]) =&gt;
+    state === 'Enter'
+      ? `${ids[id]}님이 들어왔습니다.`
+      : `${ids[id]}님이 나갔습니다.`
+  );
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(record) {
+  const userInfo = {};
+  const action = [];
+  const stateMapping = {
+    Enter: '님이 들어왔습니다.',
+    Leave: '님이 나갔습니다.',
+  };
+
+  record.forEach((v) =&gt; {
+    const [state, id, nick] = v.split(' ');
+
+    if (state !== 'Change') {
+      action.push([state, id]);
+    }
+
+    if (nick) {
+      userInfo[id] = nick;
+    }
+  });
+
+  return action.map(([state, uid]) =&gt; {
+    return `${userInfo[uid]}${stateMapping[state]}`;
+  });
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -100,10 +519,155 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 키패드 누르기]]></title>
-        <id>[프로그래머스-lv1]-키패드-누르기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-키패드-누르기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-키패드-누르기"/>
         <updated>2021-12-01T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2020 카카오 인턴십 \> 키패드 누르기]]></summary>
+        <content type="html"><![CDATA[<p>2020 카카오 인턴십 &gt; 키패드 누르기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>스마트폰 전화 키패드의 각 칸에 다음과 같이 숫자들이 적혀 있습니다.</p>
+<p><img src="https://grepp-programmers.s3.ap-northeast-2.amazonaws.com/files/production/4b69a271-5f4a-4bf4-9ebf-6ebed5a02d8d/kakao_phone1.png" alt="image"></p>
+<p>이 전화 키패드에서 왼손과 오른손의 엄지손가락만을 이용해서 숫자만을 입력하려고 합니다.
+맨 처음 왼손 엄지손가락은 <code>*</code> 키패드에 오른손 엄지손가락은 <code>#</code> 키패드 위치에서 시작하며, 엄지손가락을 사용하는 규칙은 다음과 같습니다.</p>
+<ol>
+<li>엄지손가락은 상하좌우 4가지 방향으로만 이동할 수 있으며 키패드 이동 한 칸은 거리로 1에 해당합니다.</li>
+<li>왼쪽 열의 3개의 숫자 <code>1</code>, <code>4</code>, <code>7</code>을 입력할 때는 왼손 엄지손가락을 사용합니다.</li>
+<li>오른쪽 열의 3개의 숫자 <code>3</code>, <code>6</code>, <code>9</code>를 입력할 때는 오른손 엄지손가락을 사용합니다.</li>
+<li>가운데 열의 4개의 숫자 <code>2</code>, <code>5</code>, <code>8</code>, <code>0</code>을 입력할 때는 두 엄지손가락의 현재 키패드의 위치에서 더 가까운 엄지손가락을 사용합니다.
+4-1. 만약 두 엄지손가락의 거리가 같다면, 오른손잡이는 오른손 엄지손가락, 왼손잡이는 왼손 엄지손가락을 사용합니다.</li>
+</ol>
+<p>순서대로 누를 번호가 담긴 배열 numbers, 왼손잡이인지 오른손잡이인 지를 나타내는 문자열 hand가 매개변수로 주어질 때, 각 번호를 누른 엄지손가락이 왼손인 지 오른손인 지를 나타내는 연속된 문자열 형태로 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>numbers 배열의 크기는 1 이상 1,000 이하입니다.</li>
+<li>numbers 배열 원소의 값은 0 이상 9 이하인 정수입니다.</li>
+<li>hand는 <code>"left"</code> 또는 <code>"right"</code> 입니다.<!-- -->
+<ul>
+<li><code>"left"</code>는 왼손잡이, <code>"right"</code>는 오른손잡이를 의미합니다.</li>
+</ul>
+</li>
+<li>왼손 엄지손가락을 사용한 경우는 <code>L</code>, 오른손 엄지손가락을 사용한 경우는 <code>R</code>을 순서대로 이어붙여 문자열 형태로 return 해주세요.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>numbers</th><th>hand</th><th>result</th></tr></thead><tbody><tr><td>[1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]</td><td>"right"</td><td>"LRLLLRLLRRL"</td></tr><tr><td>[7, 0, 8, 2, 8, 3, 1, 5, 7, 6, 2]</td><td>"left"</td><td>"LRLLRRLLLRR"</td></tr><tr><td>[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]</td><td>"right"</td><td>"LLRLLRLLRL"</td></tr></tbody></table>
+<h2 id="입출력-예에-대한-설명">입출력 예에 대한 설명</h2>
+<h3 id="입출력-예-1">입출력 예 #1</h3>
+<p>순서대로 눌러야 할 번호가 [1, 3, 4, 5, 8, 2, 1, 4, 5, 9, 5]이고, 오른손잡이입니다.</p>
+<table><thead><tr><th>왼손 위치</th><th>오른손 위치</th><th>눌러야 할 숫자</th><th>사용한 손</th><th>설명</th></tr></thead><tbody><tr><td>*</td><td>##</td><td>1</td><td>L</td><td>1은 왼손으로 누릅니다.</td></tr><tr><td>1</td><td>##</td><td>3</td><td>R</td><td>1은 왼손으로 누릅니다.</td></tr><tr><td>1</td><td>3</td><td>4</td><td>L</td><td>4는 왼손으로 누릅니다.</td></tr><tr><td>4</td><td>3</td><td>5</td><td>L</td><td>왼손 거리는 1, 오른손 거리는 2이므로 왼손으로 5를 누릅니다.</td></tr><tr><td>5</td><td>3</td><td>8</td><td>L</td><td>왼손 거리는 1, 오른손 거리는 3이므로 왼손으로 8을 누릅니다.</td></tr><tr><td>8</td><td>3</td><td>2</td><td>R</td><td>왼손 거리는 2, 오른손 거리는 1이므로 오른손으로 2를 누릅니다.</td></tr><tr><td>8</td><td>2</td><td>1</td><td>L</td><td>1은 왼손으로 누릅니다.</td></tr><tr><td>1</td><td>2</td><td>4</td><td>L</td><td>4는 왼손으로 누릅니다.</td></tr><tr><td>4</td><td>2</td><td>5</td><td>R</td><td>왼손 거리와 오른손 거리가 1로 같으므로, 오른손으로 5를 누릅니다.</td></tr><tr><td>4</td><td>5</td><td>9</td><td>R</td><td>9는 오른손으로 누릅니다.</td></tr><tr><td>4</td><td>9</td><td>5</td><td>L</td><td>왼손 거리는 1, 오른손 거리는 2이므로 왼손으로 5를 누릅니다.</td></tr><tr><td>5</td><td>9</td><td>-</td><td>-</td><td></td></tr></tbody></table>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">const distance = (from, to) =&gt; {
+  if (from === '*' || from === '#') {
+    const destination = { 2: 4, 5: 3, 8: 2, 0: 1 };
+    return destination[to];
+  }
+  if (from === 1 || from === 3) {
+    const destination = { 2: 1, 5: 2, 8: 3, 0: 4 };
+    return destination[to];
+  }
+  if (from === 4 || from === 6) {
+    const destination = { 2: 2, 5: 1, 8: 2, 0: 3 };
+    return destination[to];
+  }
+  if (from === 7 || from === 9) {
+    const destination = { 2: 3, 5: 2, 8: 1, 0: 2 };
+    return destination[to];
+  }
+  if (from === 2) {
+    const destination = { 2: 0, 5: 1, 8: 2, 0: 3 };
+    return destination[to];
+  }
+  if (from === 5) {
+    const destination = { 2: 1, 5: 0, 8: 1, 0: 2 };
+    return destination[to];
+  }
+  if (from === 8) {
+    const destination = { 2: 2, 5: 1, 8: 0, 0: 1 };
+    return destination[to];
+  }
+  if (from === 0) {
+    const destination = { 2: 3, 5: 2, 8: 1, 0: 0 };
+    return destination[to];
+  }
+};
+
+function solution(numbers, hand) {
+  let leftPosition = '*';
+  let rightPosition = '#';
+  let answer = [];
+
+  const moveHand = (hand, num) =&gt; {
+    if (hand === 'L') {
+      leftPosition = num;
+      answer.push('L');
+      return;
+    }
+    if (hand === 'R') {
+      rightPosition = num;
+      answer.push('R');
+      return;
+    }
+  };
+
+  for (let i = 0; i &lt; numbers.length; i++) {
+    if (new RegExp(/1|4|7/).test(numbers[i])) {
+      moveHand('L', numbers[i]);
+    }
+    if (new RegExp(/3|6|9/).test(numbers[i])) {
+      moveHand('R', numbers[i]);
+    }
+    if (new RegExp(/2|5|8|0/).test(numbers[i])) {
+      const distanceL = distance(leftPosition, numbers[i]);
+      const distanceR = distance(rightPosition, numbers[i]);
+      if (distanceL &gt; distanceR) {
+        moveHand('R', numbers[i]);
+      } else if (distanceL &lt; distanceR) {
+        moveHand('L', numbers[i]);
+      } else if (distanceL === distanceR) {
+        if (hand === 'right') {
+          moveHand('R', numbers[i]);
+        } else if (hand === 'left') {
+          moveHand('L', numbers[i]);
+        }
+      }
+    }
+  }
+  return answer.join('');
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(numbers, hand) {
+  hand = hand[0] === 'r' ? 'R' : 'L';
+  let position = [1, 4, 4, 4, 3, 3, 3, 2, 2, 2];
+  let h = { L: [1, 1], R: [1, 1] };
+  return numbers
+    .map((x) =&gt; {
+      if (/[147]/.test(x)) {
+        h.L = [position[x], 1];
+        return 'L';
+      }
+      if (/[369]/.test(x)) {
+        h.R = [position[x], 1];
+        return 'R';
+      }
+      let distL = Math.abs(position[x] - h.L[0]) + h.L[1];
+      let distR = Math.abs(position[x] - h.R[0]) + h.R[1];
+      if (distL === distR) {
+        h[hand] = [position[x], 0];
+        return hand;
+      }
+      if (distL &lt; distR) {
+        h.L = [position[x], 0];
+        return 'L';
+      }
+      h.R = [position[x], 0];
+      return 'R';
+    })
+    .join('');
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -116,10 +680,108 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] [1차] 다트 게임]]></title>
-        <id>[프로그래머스-lv1]-[1차]-다트-게임</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-[1차]-다트-게임</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-[1차]-다트-게임"/>
         <updated>2021-11-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2018 KAKAO BLIND RECRUITMENT \> \[1차\] 다트 게임]]></summary>
+        <content type="html"><![CDATA[<p>2018 KAKAO BLIND RECRUITMENT &gt; [1차] 다트 게임</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>카카오톡 게임별의 하반기 신규 서비스로 다트 게임을 출시하기로 했다. 다트 게임은 다트판에 다트를 세 차례 던져 그 점수의 합계로 실력을 겨루는 게임으로, 모두가 간단히 즐길 수 있다.
+갓 입사한 무지는 코딩 실력을 인정받아 게임의 핵심 부분인 점수 계산 로직을 맡게 되었다. 다트 게임의 점수 계산 로직은 아래와 같다.</p>
+<ol>
+<li>다트 게임은 총 3번의 기회로 구성된다.</li>
+<li>각 기회마다 얻을 수 있는 점수는 0점에서 10점까지이다.</li>
+<li>점수와 함께 Single(<code>S</code>), Double(<code>D</code>), Triple(<code>T</code>) 영역이 존재하고 각 영역 당첨 시 점수에서 1제곱, 2제곱, 3제곱 (점수<sup>1</sup> , 점수<sup>2</sup> , 점수<sup>3</sup> )으로 계산된다.</li>
+<li>옵션으로 스타상(<code>*</code>) , 아차상(<code>#</code>)이 존재하며 스타상(<code>*</code>) 당첨 시 해당 점수와 바로 전에 얻은 점수를 각 2배로 만든다. 아차상(<code>#</code>) 당첨 시 해당 점수는 마이너스된다.</li>
+<li>스타상(<code>*</code>)은 첫 번째 기회에서도 나올 수 있다. 이 경우 첫 번째 스타상(<code>*</code>)의 점수만 2배가 된다. (예제 4번 참고)</li>
+<li>스타상(<code>*</code>)의 효과는 다른 스타상(<code>*</code>)의 효과와 중첩될 수 있다. 이 경우 중첩된 스타상(<code>*</code>) 점수는 4배가 된다. (예제 4번 참고)</li>
+<li>스타상(<code>*</code>)의 효과는 아차상(<code>#</code>)의 효과와 중첩될 수 있다. 이 경우 중첩된 아차상(<code>#</code>)의 점수는 -2배가 된다. (예제 5번 참고)</li>
+<li>Single(<code>S</code>), Double(<code>D</code>), Triple(<code>T</code>)은 점수마다 하나씩 존재한다.</li>
+<li>스타상(<code>*</code>), 아차상(<code>#</code>)은 점수마다 둘 중 하나만 존재할 수 있으며, 존재하지 않을 수도 있다.</li>
+</ol>
+<p>0~10의 정수와 문자 S, D, T, *, #로 구성된 문자열이 입력될 시 총점수를 반환하는 함수를 작성하라.</p>
+<hr>
+<h2 id="입력-형식">입력 형식</h2>
+<p>"점수|보너스|[옵션]"으로 이루어진 문자열 3세트.</p>
+<p>예) <code>1S2D*3T</code></p>
+<ul>
+<li>점수는 0에서 10 사이의 정수이다.</li>
+<li>보너스는 S, D, T 중 하나이다.</li>
+<li>옵선은 *이나 ## 중 하나이며, 없을 수도 있다.</li>
+</ul>
+<hr>
+<h2 id="출력-형식">출력 형식</h2>
+<p>3번의 기회에서 얻은 점수 합계에 해당하는 정수값을 출력한다.</p>
+<p>예) 37</p>
+<table><thead><tr><th>예제</th><th>dartResult</th><th>answer</th><th>설명</th></tr></thead><tbody><tr><td>1</td><td>1S2D*3T</td><td>37</td><td>1<sup>1</sup> * 2 + 2<sup>2</sup> * 2 + 3<sup>3</sup></td></tr><tr><td>2</td><td>1D2S#10S</td><td>9</td><td>1<sup>2</sup> + 2<sup>1</sup> * (-1) + 10<sup>1</sup></td></tr><tr><td>3</td><td>1D2S0T</td><td>3</td><td>1<sup>2</sup> + 2<sup>1</sup> + 0<sup>3</sup></td></tr><tr><td>4</td><td>1S*2T*3S</td><td>23</td><td>1<sup>1</sup> * 2 * 2 + 2<sup>3</sup> * 2 + 3<sup>1</sup></td></tr><tr><td>5</td><td>1D#2S*3S</td><td>5</td><td>1<sup>2</sup> * (-1) * 2 + 2<sup>1</sup> * 2 + 3<sup>1</sup></td></tr><tr><td>6</td><td>1T2D3D#</td><td>-4</td><td>1<sup>3</sup> + 2<sup>2</sup> + 3<sup>2</sup> * (-1)</td></tr><tr><td>7</td><td>1D2S3T*</td><td>59</td><td>1<sup>2</sup> + 2<sup>1</sup> * 2 + 3<sup>3</sup> * 2</td></tr></tbody></table>
+<p><a href="https://tech.kakao.com/2017/09/27/kakao-blind-recruitment-round-1/">해설 보러가기</a></p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">const double = (target) =&gt; target * 2;
+
+const subtract = (target) =&gt; -target;
+
+const bonus = { S: 1, D: 2, T: 3 };
+
+const score = (target, SDT) =&gt; Math.pow(Number(target), bonus[SDT]);
+
+let beforeAdd = [];
+
+const handleSDT = (target, bonus, option) =&gt; {
+  if (option === '*') {
+    const last = beforeAdd.pop();
+    last &amp;&amp; beforeAdd.push(double(last));
+    beforeAdd.push(double(score(target, bonus)));
+  } else if (option === '#') {
+    beforeAdd.push(subtract(score(target, bonus)));
+  } else {
+    beforeAdd.push(score(target, bonus));
+  }
+};
+
+const addAll = (array) =&gt; array.reduce((acc, cur) =&gt; acc + cur);
+
+function solution(dartResult) {
+  let answer = 0;
+  const results = dartResult.split('');
+
+  for (let i = 0; i &lt; results.length; i++) {
+    if (new RegExp(/[0-9]/).test(results[i])) {
+      if (new RegExp(/[0-9]/).test(results[i + 1])) {
+        handleSDT(results[i] + results[i + 1], results[i + 2], results[i + 3]);
+        i += 2;
+      } else if (new RegExp(/[SDT]/).test(results[i + 1])) {
+        handleSDT(results[i], results[i + 1], results[i + 2]);
+        i += 1;
+      }
+    }
+    if (!results[i + 1]) answer = addAll(beforeAdd);
+  }
+  return answer;
+}
+</code></pre>
+<blockquote>
+<p>풀고 보니 너무 복잡하게 풀었다 😞</p>
+</blockquote>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(dartResult) {
+  const bonus = { S: 1, D: 2, T: 3 },
+    options = { '*': 2, '#': -1, undefined: 1 };
+
+  let darts = dartResult.match(/\d.?\D/g);
+
+  for (let i = 0; i &lt; darts.length; i++) {
+    let split = darts[i].match(/(^\d{1,})(S|D|T)(\*|#)?/),
+      score = Math.pow(split[1], bonus[split[2]]) * options[split[3]];
+
+    if (split[3] === '*' &amp;&amp; darts[i - 1]) darts[i - 1] *= options['*'];
+
+    darts[i] = score;
+  }
+
+  return darts.reduce((a, b) =&gt; a + b);
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -132,10 +794,78 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 소수 만들기]]></title>
-        <id>[프로그래머스-lv1]-소수-만들기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-소수-만들기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-소수-만들기"/>
         <updated>2021-11-30T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summer/Winter Coding(~2018) \> 소수 만들기]]></summary>
+        <content type="html"><![CDATA[<p>Summer/Winter Coding(~2018) &gt; 소수 만들기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>주어진 숫자 중 3개의 수를 더했을 때 소수가 되는 경우의 개수를 구하려고 합니다. 숫자들이 들어있는 배열 nums가 매개변수로 주어질 때, nums에 있는 숫자들 중 서로 다른 3개를 골라 더했을 때 소수가 되는 경우의 개수를 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한-사항">제한 사항</h2>
+<ul>
+<li>nums에 들어있는 숫자의 개수는 3개 이상 50개 이하입니다.</li>
+<li>nums의 각 원소는 1 이상 1,000 이하의 자연수이며, 중복된 숫자가 들어있지 않습니다.</li>
+</ul>
+<hr>
+<h2 id="출력-형식">출력 형식</h2>
+<p>3번의 기회에서 얻은 점수 합계에 해당하는 정수값을 출력한다.</p>
+<p>예) 37</p>
+<table><thead><tr><th>nums</th><th>result</th></tr></thead><tbody><tr><td>[1, 2, 3, 4]</td><td>1</td></tr><tr><td>[1, 2, 7, 6, 4]</td><td>4</td></tr></tbody></table>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function isPrime(num) {
+  for (let i = 2; i &lt;= Math.floor(Math.sqrt(num)); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function solution(nums) {
+  let answer = 0;
+  for (let i = 0; i &lt; nums.length; i++) {
+    for (let j = i + 1; j &lt; nums.length; j++) {
+      for (let k = j + 1; k &lt; nums.length; k++) {
+        const threeNums = [nums[i], nums[j], nums[k]];
+        const sum = threeNums.reduce((acc, cur) =&gt; acc + cur);
+        if (isPrime(sum)) answer++;
+      }
+    }
+  }
+  return answer;
+}
+</code></pre>
+<blockquote>
+<p>소수 판별식을 한번 따로 정리해야겠다. 🤓</p>
+</blockquote>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function primecheck(n) {
+  for (var i = 2; i &lt;= Math.sqrt(n); i++) {
+    if (n % i == 0) {
+      return false;
+    }
+  }
+  return true;
+}
+function solution(nums) {
+  var cnt = 0;
+  for (var i = 0; i &lt; nums.length - 2; i++) {
+    for (var j = i + 1; j &lt; nums.length - 1; j++) {
+      for (var w = j + 1; w &lt; nums.length; w++) {
+        //console.log(nums[i]+"/"+nums[j]+"/"+nums[w]);
+
+        if (primecheck(nums[i] + nums[j] + nums[w])) {
+          //console.log(nums[i]+nums[j]+nums[w]);
+          cnt++;
+        }
+      }
+    }
+  }
+  return cnt;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -147,10 +877,112 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 실패율]]></title>
-        <id>[프로그래머스-lv1]-실패율</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-실패율</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-실패율"/>
         <updated>2021-11-29T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2019 KAKAO BLIND RECRUITMENT \> 실패율]]></summary>
+        <content type="html"><![CDATA[<p>2019 KAKAO BLIND RECRUITMENT &gt; 실패율</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p><img src="https://grepp-programmers.s3.amazonaws.com/files/production/bde471d8ac/48ddf1cc-c4ea-499d-b431-9727ee799191.png" alt="image"></p>
+<p>슈퍼 게임 개발자 오렐리는 큰 고민에 빠졌다. 그녀가 만든 프랜즈 오천성이 대성공을 거뒀지만, 요즘 신규 사용자의 수가 급감한 것이다. 원인은 신규 사용자와 기존 사용자 사이에 스테이지 차이가 너무 큰 것이 문제였다.</p>
+<p>이 문제를 어떻게 할까 고민 한 그녀는 동적으로 게임 시간을 늘려서 난이도를 조절하기로 했다. 역시 슈퍼 개발자라 대부분의 로직은 쉽게 구현했지만, 실패율을 구하는 부분에서 위기에 빠지고 말았다. 오렐리를 위해 실패율을 구하는 코드를 완성하라.</p>
+<ul>
+<li>실패율은 다음과 같이 정의한다.<!-- -->
+<ul>
+<li>스테이지에 도달했으나 아직 클리어하지 못한 플레이어의 수 / 스테이지에 도달한 플레이어 수</li>
+</ul>
+</li>
+</ul>
+<p>전체 스테이지의 개수 <code>N</code>, 게임을 이용하는 사용자가 현재 멈춰있는 스테이지의 번호가 담긴 배열 <code>stages</code>가 매개변수로 주어질 때, 실패율이 높은 스테이지부터 내림차순으로 스테이지의 번호가 담겨있는 배열을 return 하도록 solution 함수를 완성하라.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>스테이지의 개수 N은 <code>1</code> 이상 <code>500</code> 이하의 자연수이다.</li>
+<li>stages의 길이는 <code>1</code> 이상 <code>200,000</code> 이하이다.</li>
+<li>stages에는 <code>1</code> 이상 <code>N + 1</code> 이하의 자연수가 담겨있다.<!-- -->
+<ul>
+<li>각 자연수는 사용자가 현재 도전 중인 스테이지의 번호를 나타낸다.</li>
+<li>단, <code>N + 1</code> 은 마지막 스테이지(N 번째 스테이지) 까지 클리어 한 사용자를 나타낸다.</li>
+</ul>
+</li>
+<li>만약 실패율이 같은 스테이지가 있다면 작은 번호의 스테이지가 먼저 오도록 하면 된다.</li>
+<li>스테이지에 도달한 유저가 없는 경우 해당 스테이지의 실패율은 <code>0</code> 으로 정의한다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>N</th><th>states</th><th>result</th></tr></thead><tbody><tr><td>5</td><td>[2, 1, 2, 6, 2, 4, 3, 3]</td><td>[3, 4, 2, 1, 5]</td></tr><tr><td>4</td><td>[4, 4, 4, 4, 4]</td><td>[4, 1, 2, 3]</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>1번 스테이지에는 총 8명의 사용자가 도전했으며, 이 중 1명의 사용자가 아직 클리어하지 못했다. 따라서 1번 스테이지의 실패율은 다음과 같다.</p>
+<ul>
+<li>1 번 스테이지 실패율 : 1/8</li>
+</ul>
+<p>2번 스테이지에는 총 7명의 사용자가 도전했으며, 이 중 3명의 사용자가 아직 클리어하지 못했다. 따라서 2번 스테이지의 실패율은 다음과 같다.</p>
+<ul>
+<li>2 번 스테이지 실패율 : 3/7</li>
+</ul>
+<p>마찬가지로 나머지 스테이지의 실패율은 다음과 같다.</p>
+<ul>
+<li>3 번 스테이지 실패율 : 2/4</li>
+<li>4번 스테이지 실패율 : 1/2</li>
+<li>5번 스테이지 실패율 : 0/1</li>
+</ul>
+<p>각 스테이지의 번호를 실패율의 내림차순으로 정렬하면 다음과 같다.</p>
+<ul>
+<li>[3,4,2,1,5]</li>
+</ul>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<p>모든 사용자가 마지막 스테이지에 있으므로 4번 스테이지의 실패율은 1이며 나머지 스테이지의 실패율은 0이다.</p>
+<ul>
+<li>[4,1,2,3]</li>
+</ul>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(N, stages) {
+  var answer = [];
+  for (let i = 1; i &lt;= N; i++) {
+    const filtered = stages.filter((stage) =&gt; stage &gt;= i);
+    const failRate =
+      filtered.filter((stage) =&gt; stage === i).length / filtered.length;
+    answer.push([i, failRate]);
+  }
+  return answer.sort((a, b) =&gt; b[1] - a[1]).map((el) =&gt; el[0]);
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(N, stages) {
+  let ans = [];
+
+  for (let i = 1; i &lt;= N; ++i) {
+    let usersReachedCurrentStage = stages.reduce(
+      (acc, curStage) =&gt; acc + (curStage &gt;= i ? 1 : 0),
+      0
+    );
+    let usersStagnatedCurrentStage = stages.reduce(
+      (acc, curStage) =&gt; acc + (curStage == i ? 1 : 0),
+      0
+    );
+    if (usersReachedCurrentStage === 0) {
+      ans.push({ stage: i, failRate: 0 });
+      continue;
+    }
+
+    ans.push({
+      stage: i,
+      failRate: usersStagnatedCurrentStage / usersReachedCurrentStage,
+    });
+  }
+
+  return ans
+    .sort((a, b) =&gt; {
+      if (a.failRate &gt; b.failRate) return -1;
+      if (a.failRate &lt; b.failRate) return 1;
+      return a.stage - b.stage;
+    })
+    .map((entry) =&gt; entry.stage);
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -163,10 +995,70 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 약수의 개수와 덧셈]]></title>
-        <id>[프로그래머스-lv1]-약수의-개수와-덧셈</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-약수의-개수와-덧셈</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-약수의-개수와-덧셈"/>
         <updated>2021-11-28T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[월간 코드 챌린지 시즌2 \> 약수의 개수와 덧셈]]></summary>
+        <content type="html"><![CDATA[<p>월간 코드 챌린지 시즌2 &gt; 약수의 개수와 덧셈</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>두 정수 <code>left</code>와 <code>right</code>가 매개변수로 주어집니다. <code>left</code>부터 <code>right</code>까지의 모든 수들 중에서, 약수의 개수가 짝수인 수는 더하고, 약수의 개수가 홀수인 수는 뺀 수를 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>1 ≤ <code>left</code> ≤ <code>right</code> ≤ 1,000</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>left</th><th>right</th><th>result</th></tr></thead><tbody><tr><td>13</td><td>17</td><td>43</td></tr><tr><td>24</td><td>27</td><td>52</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<ul>
+<li>다음 표는 13부터 17까지의 수들의 약수를 모두 나타낸 것입니다.</li>
+</ul>
+<table><thead><tr><th>수</th><th>약수</th><th>약수의 개수</th></tr></thead><tbody><tr><td>13</td><td>1, 13</td><td>2</td></tr><tr><td>14</td><td>1, 2, 7, 14</td><td>4</td></tr><tr><td>15</td><td>1, 3, 5, 15</td><td>4</td></tr><tr><td>16</td><td>1, 2, 4, 8, 16</td><td>5</td></tr></tbody></table>
+<ul>
+<li>따라서, 13 + 14 + 15 - 16 + 17 = 43을 return 해야 합니다.</li>
+</ul>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<ul>
+<li>다음 표는 24부터 27까지의 수들의 약수를 모두 나타낸 것입니다.</li>
+</ul>
+<table><thead><tr><th>수</th><th>약수</th><th>약수의 개수</th></tr></thead><tbody><tr><td>24</td><td>1, 2, 3, 4, 6, 8 ,12 ,24</td><td>8</td></tr><tr><td>25</td><td>1, 5, 25</td><td>3</td></tr><tr><td>26</td><td>1, 2, 13, 26</td><td>4</td></tr><tr><td>27</td><td>1, 3, 9, 27</td><td>4</td></tr></tbody></table>
+<ul>
+<li>따라서, 24 - 25 + 26 + 27 = 52를 return 해야 합니다.</li>
+</ul>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">const findDivisor = (num) =&gt; {
+  let divisors = [];
+  for (let i = 1; i &lt;= num; i++) {
+    num % i === 0 &amp;&amp; divisors.push(i);
+  }
+  return divisors;
+};
+
+function solution(left, right) {
+  let answer = 0;
+  for (let i = left; i &lt;= right; i++) {
+    findDivisor(i).length % 2 === 0 ? (answer += i) : (answer -= i);
+  }
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(left, right) {
+  var answer = 0;
+  for (let i = left; i &lt;= right; i++) {
+    if (Number.isInteger(Math.sqrt(i))) {
+      answer -= i;
+    } else {
+      answer += i;
+    }
+  }
+  return answer;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -178,10 +1070,92 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 체육복]]></title>
-        <id>[프로그래머스-lv1]-체육복</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-체육복</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-체육복"/>
         <updated>2021-11-26T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[탐욕법(Greedy) \> 체육복]]></summary>
+        <content type="html"><![CDATA[<p>탐욕법(Greedy) &gt; 체육복</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>점심시간에 도둑이 들어, 일부 학생이 체육복을 도난당했습니다. 다행히 여벌 체육복이 있는 학생이 이들에게 체육복을 빌려주려 합니다. 학생들의 번호는 체격 순으로 매겨져 있어, 바로 앞번호의 학생이나 바로 뒷번호의 학생에게만 체육복을 빌려줄 수 있습니다. 예를 들어, 4번 학생은 3번 학생이나 5번 학생에게만 체육복을 빌려줄 수 있습니다. 체육복이 없으면 수업을 들을 수 없기 때문에 체육복을 적절히 빌려 최대한 많은 학생이 체육수업을 들어야 합니다.</p>
+<p>전체 학생의 수 n, 체육복을 도난당한 학생들의 번호가 담긴 배열 lost, 여벌의 체육복을 가져온 학생들의 번호가 담긴 배열 reserve가 매개변수로 주어질 때, 체육수업을 들을 수 있는 학생의 최댓값을 return 하도록 solution 함수를 작성해주세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>전체 학생의 수는 2명 이상 30명 이하입니다.</li>
+<li>체육복을 도난당한 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
+<li>여벌의 체육복을 가져온 학생의 수는 1명 이상 n명 이하이고 중복되는 번호는 없습니다.</li>
+<li>여벌 체육복이 있는 학생만 다른 학생에게 체육복을 빌려줄 수 있습니다.</li>
+<li>여벌 체육복을 가져온 학생이 체육복을 도난당했을 수 있습니다. 이때 이 학생은 체육복을 하나만 도난당했다고 가정하며, 남은 체육복이 하나이기에 다른 학생에게는 체육복을 빌려줄 수 없습니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>n</th><th>lost</th><th>reserve</th><th>return</th></tr></thead><tbody><tr><td>5</td><td>[2, 4]</td><td>[1, 3, 5]</td><td>5</td></tr><tr><td>5</td><td>[2, 4]</td><td>[3]</td><td>4</td></tr><tr><td>3</td><td>[3]</td><td>[1]</td><td>2</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>1번 학생이 2번 학생에게 체육복을 빌려주고, 3번 학생이나 5번 학생이 4번 학생에게 체육복을 빌려주면 학생 5명이 체육수업을 들을 수 있습니다.</p>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<p>3번 학생이 2번 학생이나 4번 학생에게 체육복을 빌려주면 학생 4명이 체육수업을 들을 수 있습니다.</p>
+<p><a href="https://hsin.hr/coci/archive/2009_2010/contest6_tasks.pdf">출처</a></p>
+<p>※ 공지 - 2019년 2월 18일 지문이 리뉴얼되었습니다.<br>
+※ 공지 - 2019년 2월 27일, 28일 테스트케이스가 추가되었습니다.<br>
+※ 공지 - 2021년 7월 28일 테스트케이스가 추가되었습니다.<br>
+※ 공지 - 2021년 8월 30일 테스트케이스가 추가되었습니다.<br></p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">const remove = (element, array) =&gt; {
+  const index = array.indexOf(element);
+  return [...array.slice(0, index), ...array.slice(index + 1)];
+};
+
+function solution(n, lost, reserve) {
+  let answer = n - lost.length;
+  lost.sort((a, b) =&gt; a - b);
+  reserve.sort((a, b) =&gt; a - b);
+
+  lost = lost.filter((el) =&gt; {
+    if (reserve.includes(el)) {
+      reserve = reserve.filter((e) =&gt; e !== el);
+      answer += 1;
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  const find = (size) =&gt; {
+    if (lost.includes(size - 1)) {
+      lost = remove(size - 1, lost);
+      answer += 1;
+      return;
+    }
+
+    if (lost.includes(size + 1)) {
+      lost = remove(size + 1, lost);
+      answer += 1;
+      return;
+    }
+  };
+
+  reserve.forEach((el) =&gt; find(el));
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<blockquote>
+<p>여벌을 가져왔으나 도난 당한 학생이 있는 경우에는 실패하는 답입니다.</p>
+</blockquote>
+<pre><code class="language-js">function solution(n, lost, reserve) {
+  return (
+    n -
+    lost.filter((a) =&gt; {
+      const b = reserve.find((r) =&gt; Math.abs(r - a) &lt;= 1);
+      if (!b) return true;
+      reserve = reserve.filter((r) =&gt; r !== b);
+    }).length
+  );
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -193,10 +1167,55 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 3진법 뒤집기]]></title>
-        <id>[프로그래머스-lv1]-3진법-뒤집기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-3진법-뒤집기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-3진법-뒤집기"/>
         <updated>2021-11-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[월간 코드 챌린지 시즌1 \> 3진법 뒤집기]]></summary>
+        <content type="html"><![CDATA[<p>월간 코드 챌린지 시즌1 &gt; 3진법 뒤집기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>자연수 n이 매개변수로 주어집니다. n을 3진법 상에서 앞뒤로 뒤집은 후, 이를 다시 10진법으로 표현한 수를 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>n은 1 이상 100,000,000 이하인 자연수입니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>n</th><th>result</th></tr></thead><tbody><tr><td>45</td><td>7</td></tr><tr><td>125</td><td>229</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<ul>
+<li>답을 도출하는 과정은 다음과 같습니다.</li>
+</ul>
+<table><thead><tr><th>n (10진법)</th><th>n (3진법)</th><th>앞뒤 반전(3진법)</th><th>10진법으로 표현</th></tr></thead><tbody><tr><td>45</td><td>1200</td><td>0021</td><td>7</td></tr></tbody></table>
+<ul>
+<li>따라서 7을 return 해야 합니다.</li>
+</ul>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<ul>
+<li>답을 도출하는 과정은 다음과 같습니다.</li>
+</ul>
+<table><thead><tr><th>n (10진법)</th><th>n (3진법)</th><th>앞뒤 반전(3진법)</th><th>10진법으로 표현</th></tr></thead><tbody><tr><td>125</td><td>11122</td><td>22111</td><td>229</td></tr></tbody></table>
+<ul>
+<li>따라서 229를 return 해야 합니다.</li>
+</ul>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(n) {
+  const reversedTernary = n
+    .toString(3)
+    .split('')
+    .map((e, i) =&gt; Math.pow(3, i) * e);
+  return reversedTernary.reduce((acc, cur) =&gt; acc + cur);
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">const solution = (n) =&gt; {
+  return parseInt([...n.toString(3)].reverse().join(''), 3);
+};
+</code></pre>
+<p>n진법에서 10진법으로 변환할땐 <code>parseInt</code>를 쓰자.. 🤓</p>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -208,10 +1227,46 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 부족한 금액 계산하기]]></title>
-        <id>[프로그래머스-lv1]-부족한-금액-계산하기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-부족한-금액-계산하기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-부족한-금액-계산하기"/>
         <updated>2021-11-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[위클리 챌린지 \> 부족한 금액 계산하기]]></summary>
+        <content type="html"><![CDATA[<p>위클리 챌린지 &gt; 부족한 금액 계산하기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>새로 생긴 놀이기구는 인기가 매우 많아 줄이 끊이질 않습니다. 이 놀이기구의 원래 이용료는 price원 인데, 놀이기구를 N 번 째 이용한다면 원래 이용료의 N배를 받기로 하였습니다. 즉, 처음 이용료가 100이었다면 2번째에는 200, 3번째에는 300으로 요금이 인상됩니다.
+놀이기구를 count번 타게 되면 현재 자신이 가지고 있는 금액에서 얼마가 모자라는지를 return 하도록 solution 함수를 완성하세요.
+단, 금액이 부족하지 않으면 0을 return 하세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>놀이기구의 이용료 price : 1 ≤ price ≤ 2,500, price는 자연수</li>
+<li>처음 가지고 있던 금액 money : 1 ≤ money ≤ 1,000,000,000, money는 자연수</li>
+<li>놀이기구의 이용 횟수 count : 1 ≤ count ≤ 2,500, count는 자연수</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>price</th><th>money</th><th>count</th><th>result</th></tr></thead><tbody><tr><td>3</td><td>20</td><td>4</td><td>10</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>이용금액이 3인 놀이기구를 4번 타고 싶은 고객이 현재 가진 금액이 20이라면, 총 필요한 놀이기구의 이용 금액은 30 (= 3+6+9+12) 이 되어 10만큼 부족하므로 10을 return 합니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(price, money, count) {
+  let sum = 0;
+  for (let i = 1; i &lt;= count; i++) {
+    sum += price * i;
+  }
+  return money &gt; sum ? 0 : sum - money;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(price, money, count) {
+  const tmp = (price * count * (count + 1)) / 2 - money;
+  return tmp &gt; 0 ? tmp : 0;
+}
+</code></pre>
+<p>가우스공식을 적용해서 푼 답이 좋아요가 가장 많았다.</p>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -223,10 +1278,59 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 폰켓몬]]></title>
-        <id>[프로그래머스-lv1]-폰켓몬</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-폰켓몬</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-폰켓몬"/>
         <updated>2021-11-24T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[찾아라 프로그래밍 마에스터 \> 폰켓몬]]></summary>
+        <content type="html"><![CDATA[<p>찾아라 프로그래밍 마에스터 &gt; 폰켓몬</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>당신은 폰켓몬을 잡기 위한 오랜 여행 끝에, 홍 박사님의 연구실에 도착했습니다. 홍 박사님은 당신에게 자신의 연구실에 있는 총 N 마리의 폰켓몬 중에서 N/2마리를 가져가도 좋다고 했습니다.
+홍 박사님 연구실의 폰켓몬은 종류에 따라 번호를 붙여 구분합니다. 따라서 같은 종류의 폰켓몬은 같은 번호를 가지고 있습니다. 예를 들어 연구실에 총 4마리의 폰켓몬이 있고, 각 폰켓몬의 종류 번호가 [3번, 1번, 2번, 3번]이라면 이는 3번 폰켓몬 두 마리, 1번 폰켓몬 한 마리, 2번 폰켓몬 한 마리가 있음을 나타냅니다. 이때, 4마리의 폰켓몬 중 2마리를 고르는 방법은 다음과 같이 6가지가 있습니다.</p>
+<ol>
+<li>첫 번째(3번), 두 번째(1번) 폰켓몬을 선택</li>
+<li>첫 번째(3번), 세 번째(2번) 폰켓몬을 선택</li>
+<li>첫 번째(3번), 네 번째(3번) 폰켓몬을 선택</li>
+<li>두 번째(1번), 세 번째(2번) 폰켓몬을 선택</li>
+<li>두 번째(1번), 네 번째(3번) 폰켓몬을 선택</li>
+<li>세 번째(2번), 네 번째(3번) 폰켓몬을 선택</li>
+</ol>
+<p>이때, 첫 번째(3번) 폰켓몬과 네 번째(3번) 폰켓몬을 선택하는 방법은 한 종류(3번 폰켓몬 두 마리)의 폰켓몬만 가질 수 있지만, 다른 방법들은 모두 두 종류의 폰켓몬을 가질 수 있습니다. 따라서 위 예시에서 가질 수 있는 폰켓몬 종류 수의 최댓값은 2가 됩니다.
+당신은 최대한 다양한 종류의 폰켓몬을 가지길 원하기 때문에, 최대한 많은 종류의 폰켓몬을 포함해서 N/2마리를 선택하려 합니다. N마리 폰켓몬의 종류 번호가 담긴 배열 nums가 매개변수로 주어질 때, N/2마리의 폰켓몬을 선택하는 방법 중, 가장 많은 종류의 폰켓몬을 선택하는 방법을 찾아, 그때의 폰켓몬 종류 번호의 개수를 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>nums는 폰켓몬의 종류 번호가 담긴 1차원 배열입니다.</li>
+<li>nums의 길이(N)는 1 이상 10,000 이하의 자연수이며, 항상 짝수로 주어집니다.</li>
+<li>폰켓몬의 종류 번호는 1 이상 200,000 이하의 자연수로 나타냅니다.</li>
+<li>가장 많은 종류의 폰켓몬을 선택하는 방법이 여러 가지인 경우에도, 선택할 수 있는 폰켓몬 종류 개수의 최댓값 하나만 return 하면 됩니다.</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>nums</th><th>result</th></tr></thead><tbody><tr><td>[3, 1, 2, 3]</td><td>2</td></tr><tr><td>[3, 3, 3, 2, 2, 4]</td><td>3</td></tr><tr><td>[3,3,3,2,2,2]</td><td>2</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>문제 예시와 같습니다.</p>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<p>6마리의 폰켓몬이 있으므로, 3마리의 폰켓몬을 골라야 합니다.
+가장 많은 종류의 폰켓몬을 고르기 위해서는 3번 폰켓몬 한 마리, 2번 폰켓몬 한 마리, 4번 폰켓몬 한 마리를 고르면 되며, 따라서 3을 return 합니다.</p>
+<h4 id="입출력-예-3">입출력 예 #3</h4>
+<p>6마리의 폰켓몬이 있으므로, 3마리의 폰켓몬을 골라야 합니다.
+가장 많은 종류의 폰켓몬을 고르기 위해서는 3번 폰켓몬 한 마리와 2번 폰켓몬 두 마리를 고르거나, 혹은 3번 폰켓몬 두 마리와 2번 폰켓몬 한 마리를 고르면 됩니다. 따라서 최대 고를 수 있는 폰켓몬 종류의 수는 2입니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(sizes) {
+  const newSizes = sizes.map((size) =&gt; {
+    if (size[0] &lt; size[1]) {
+      return [size[1], size[0]];
+    }
+    return [size[0], size[1]];
+  });
+  const maxX = Math.max(...newSizes.map((size) =&gt; size[0]));
+  const maxY = Math.max(...newSizes.map((size) =&gt; size[1]));
+  return maxX * maxY;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -238,10 +1342,79 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 최소직사각형]]></title>
-        <id>[프로그래머스-lv1]-최소직사각형</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-최소직사각형</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-최소직사각형"/>
         <updated>2021-11-22T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[위클리 챌린지 \> 최소 직사각형]]></summary>
+        <content type="html"><![CDATA[<p>위클리 챌린지 &gt; 최소 직사각형</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>명함 지갑을 만드는 회사에서 지갑의 크기를 정하려고 합니다. 다양한 모양과 크기의 명함들을 모두 수납할 수 있으면서, 작아서 들고 다니기 편한 지갑을 만들어야 합니다. 이러한 요건을 만족하는 지갑을 만들기 위해 디자인팀은 모든 명함의 가로 길이와 세로 길이를 조사했습니다.</p>
+<p>아래 표는 4가지 명함의 가로 길이와 세로 길이를 나타냅니다.</p>
+<table><thead><tr><th>명함 번호</th><th>가로 길이</th><th>세로 길이</th></tr></thead><tbody><tr><td>1</td><td>60</td><td>50</td></tr><tr><td>2</td><td>30</td><td>70</td></tr><tr><td>3</td><td>60</td><td>30</td></tr><tr><td>4</td><td>80</td><td>40</td></tr></tbody></table>
+<p>가장 긴 가로 길이와 세로 길이가 각각 80, 70이기 때문에 80(가로) x 70(세로) 크기의 지갑을 만들면 모든 명함들을 수납할 수 있습니다. 하지만 2번 명함을 가로로 눕혀 수납한다면 80(가로) x 50(세로) 크기의 지갑으로 모든 명함들을 수납할 수 있습니다. 이때의 지갑 크기는 4000(=80 x 50)입니다.</p>
+<p>모든 명함의 가로 길이와 세로 길이를 나타내는 2차원 배열 sizes가 매개변수로 주어집니다. 모든 명함을 수납할 수 있는 가장 작은 지갑을 만들 때, 지갑의 크기를 return 하도록 solution 함수를 완성해주세요.</p>
+<hr>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>sizes의 길이는 1 이상 10,000 이하입니다.<!-- -->
+<ul>
+<li>sizes의 원소는 [w, h] 형식입니다.</li>
+<li>w는 명함의 가로 길이를 나타냅니다.</li>
+<li>h는 명함의 세로 길이를 나타냅니다.</li>
+<li>w와 h는 1 이상 1,000 이하인 자연수입니다.</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>sizes</th><th>result</th></tr></thead><tbody><tr><td>[[60, 50], [30, 70], [60, 30], [80, 40]]</td><td>4000</td></tr><tr><td>[[10, 7], [12, 3], [8, 15], [14, 7], [5, 15]]</td><td>120</td></tr><tr><td>[[14, 4], [19, 6], [6, 16], [18, 7], [7, 11]]</td><td>133</td></tr></tbody></table>
+<hr>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>문제 예시와 같습니다.</p>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<p>명함들을 적절히 회전시켜 겹쳤을 때, 3번째 명함(가로: 8, 세로: 15)이 다른 모든 명함보다 크기가 큽니다. 따라서 지갑의 크기는 3번째 명함의 크기와 같으며, 120(=8 x 15)을 return 합니다.</p>
+<h4 id="입출력-예-3">입출력 예 #3</h4>
+<p>명함들을 적절히 회전시켜 겹쳤을 때, 모든 명함을 포함하는 가장 작은 지갑의 크기는 133(=19 x 7)입니다.</p>
+<hr>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(sizes) {
+  const newSizes = sizes.map((size) =&gt; {
+    if (size[0] &lt; size[1]) {
+      return [size[1], size[0]];
+    }
+    return [size[0], size[1]];
+  });
+  const maxX = Math.max(...newSizes.map((size) =&gt; size[0]));
+  const maxY = Math.max(...newSizes.map((size) =&gt; size[1]));
+  return maxX * maxY;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(sizes) {
+  const [hor, ver] = sizes.reduce(
+    ([h, v], [a, b]) =&gt; [
+      Math.max(h, Math.max(a, b)),
+      Math.max(v, Math.min(a, b)),
+    ],
+    [0, 0]
+  );
+  return hor * ver;
+}
+</code></pre>
+<pre><code class="language-js">function solution(sizes) {
+  let w = 0;
+  let h = 0;
+  sizes.forEach((s) =&gt; {
+    const [a, b] = s.sort((a, b) =&gt; a - b);
+    if (a &gt; h) h = a;
+    if (b &gt; w) w = b;
+  });
+
+  return w * h;
+}
+</code></pre>
+<p>메서드 숙련도를 높여야겠다.. 😞</p>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -253,10 +1426,49 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 나머지가 1이 되는 수 찾기]]></title>
-        <id>[프로그래머스-lv1]-나머지가-1이-되는-수-찾기</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-나머지가-1이-되는-수-찾기</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-나머지가-1이-되는-수-찾기"/>
         <updated>2021-11-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[월간 코드 챌린지 시즌3 \> 나머지가 1이 되는 수 찾기]]></summary>
+        <content type="html"><![CDATA[<p>월간 코드 챌린지 시즌3 &gt; 나머지가 1이 되는 수 찾기</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>자연수 <code>n</code>이 매개변수로 주어집니다. <code>n</code>을 <code>x</code>로 나눈 나머지가 1이 되도록 하는 가장 작은 자연수 <code>x</code>를 return 하도록 solution 함수를 완성해주세요. 답이 항상 존재함은 증명될 수 있습니다.</p>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>3 ≤ <code>n</code> ≤ 1,000,000</li>
+</ul>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>n</th><th>result</th></tr></thead><tbody><tr><td>10</td><td>3</td></tr><tr><td>12</td><td>11</td></tr></tbody></table>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<ul>
+<li>10을 3으로 나눈 나머지가 1이고, 3보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 3을 return 해야 합니다.</li>
+</ul>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<ul>
+<li>12를 11로 나눈 나머지가 1이고, 11보다 작은 자연수 중에서 문제의 조건을 만족하는 수가 없으므로, 11을 return 해야 합니다.</li>
+</ul>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(n) {
+  let answer = 0;
+  for (let i = 2; i &lt; n; i++) {
+    if (n % i === 1) {
+      answer = i;
+      break;
+    }
+  }
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(n, x = 1) {
+  while (x++) {
+    if (n % x === 1) {
+      return x;
+    }
+  }
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -268,10 +1480,68 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 예산]]></title>
-        <id>[프로그래머스-lv1]-예산</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-예산</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-예산"/>
         <updated>2021-11-21T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Summer/Winter Coding(~2018) \> 예산]]></summary>
+        <content type="html"><![CDATA[<p>Summer/Winter Coding(~2018) &gt; 예산</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>S사에서는 각 부서에 필요한 물품을 지원해 주기 위해 부서별로 물품을 구매하는데 필요한 금액을 조사했습니다. 그러나, 전체 예산이 정해져 있기 때문에 모든 부서의 물품을 구매해 줄 수는 없습니다. 그래서 최대한 많은 부서의 물품을 구매해 줄 수 있도록 하려고 합니다.</p>
+<p>물품을 구매해 줄 때는 각 부서가 신청한 금액만큼을 모두 지원해 줘야 합니다. 예를 들어 1,000원을 신청한 부서에는 정확히 1,000원을 지원해야 하며, 1,000원보다 적은 금액을 지원해 줄 수는 없습니다.</p>
+<p>부서별로 신청한 금액이 들어있는 배열 d와 예산 budget이 매개변수로 주어질 때, 최대 몇 개의 부서에 물품을 지원할 수 있는지 return 하도록 solution 함수를 완성해주세요.</p>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>d는 부서별로 신청한 금액이 들어있는 배열이며, 길이(전체 부서의 개수)는 1 이상 100 이하입니다.</li>
+<li>d의 각 원소는 부서별로 신청한 금액을 나타내며, 부서별 신청 금액은 1 이상 100,000 이하의 자연수입니다.</li>
+<li>budget은 예산을 나타내며, 1 이상 10,000,000 이하의 자연수입니다.</li>
+</ul>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>d</th><th>budge</th><th>result</th></tr></thead><tbody><tr><td>[1, 3, 2, 5, 4]</td><td>9</td><td>3</td></tr><tr><td>[2, 2, 3, 3]</td><td>10</td><td>4</td></tr></tbody></table>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<h4 id="입출력-예-1">입출력 예 #1</h4>
+<p>각 부서에서 [1원, 3원, 2원, 5원, 4원]만큼의 금액을 신청했습니다. 만약에, 1원, 2원, 4원을 신청한 부서의 물품을 구매해주면 예산 9원에서 7원이 소비되어 2원이 남습니다. 항상 정확히 신청한 금액만큼 지원해 줘야 하므로 남은 2원으로 나머지 부서를 지원해 주지 않습니다. 위 방법 외에 3개 부서를 지원해 줄 방법들은 다음과 같습니다.</p>
+<ul>
+<li>1원, 2원, 3원을 신청한 부서의 물품을 구매해주려면 6원이 필요합니다.</li>
+<li>1원, 2원, 5원을 신청한 부서의 물품을 구매해주려면 8원이 필요합니다.</li>
+<li>1원, 3원, 4원을 신청한 부서의 물품을 구매해주려면 8원이 필요합니다.</li>
+<li>1원, 3원, 5원을 신청한 부서의 물품을 구매해주려면 9원이 필요합니다.</li>
+</ul>
+<p>3개 부서보다 더 많은 부서의 물품을 구매해 줄 수는 없으므로 최대 3개 부서의 물품을 구매해 줄 수 있습니다.</p>
+<h4 id="입출력-예-2">입출력 예 #2</h4>
+<p>모든 부서의 물품을 구매해주면 10원이 됩니다. 따라서 최대 4개 부서의 물품을 구매해 줄 수 있습니다.</p>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(d, budget) {
+  let answer = 0;
+  const sorted = d.sort((a, b) =&gt; a - b);
+  let b = budget;
+  sorted.forEach((el) =&gt; {
+    if (b &gt;= el) {
+      b -= el;
+      answer++;
+    }
+    return false;
+  });
+  return answer;
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(d, budget) {
+  d.sort((a, b) =&gt; a - b);
+
+  while (d.reduce((a, b) =&gt; a + b, 0) &gt; budget) d.pop();
+
+  return d.length;
+}
+</code></pre>
+<pre><code class="language-js">function solution(d, budget) {
+  return ~(
+    ~d
+      .sort((a, b) =&gt; a - b)
+      .map((v) =&gt; (budget -= v))
+      .findIndex((v) =&gt; v &lt; 0) || ~d.length
+  );
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -283,10 +1553,43 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] 같은 숫자는 싫어]]></title>
-        <id>[프로그래머스-lv1]-같은-숫자는-싫어</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-같은-숫자는-싫어</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-같은-숫자는-싫어"/>
         <updated>2021-11-19T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[문제 설명]]></summary>
+        <content type="html"><![CDATA[<h2 id="문제-설명">문제 설명</h2>
+<p>배열 arr가 주어집니다. 배열 arr의 각 원소는 숫자 0부터 9까지로 이루어져 있습니다. 이때, 배열 arr에서 연속적으로 나타나는 숫자는 하나만 남기고 전부 제거하려고 합니다. 단, 제거된 후 남은 수들을 반환할 때는 배열 arr의 원소들의 순서를 유지해야 합니다. 예를 들면,</p>
+<ul>
+<li>arr = [1, 1, 3, 3, 0, 1, 1] 이면 [1, 3, 0, 1] 을 return 합니다.</li>
+<li>arr = [4, 4, 4, 3, 3] 이면 [4, 3] 을 return 합니다.
+배열 arr에서 연속적으로 나타나는 숫자는 제거하고 남은 수들을 return 하는 solution 함수를 완성해 주세요.</li>
+</ul>
+<h2 id="제한사항">제한사항</h2>
+<ul>
+<li>배열 arr의 크기 : 1,000,000 이하의 자연수</li>
+<li>배열 arr의 원소의 크기 : 0보다 크거나 같고 9보다 작거나 같은 정수</li>
+</ul>
+<h2 id="입출력-예">입출력 예</h2>
+<table><thead><tr><th>arr</th><th>answer</th></tr></thead><tbody><tr><td>[1, 1, 3, 3, 0, 1, 1]</td><td>[1, 3, 0, 1]</td></tr><tr><td>[4, 4, 4, 3, 3]</td><td>[4, 3]</td></tr></tbody></table>
+<h3 id="입출력-예-설명">입출력 예 설명</h3>
+<p>입출력 예 #1,2
+문제의 예시와 같습니다.</p>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(arr) {
+  let answer = [];
+  for (let i = 0; i &lt; arr.length; i++) {
+    if (answer[answer.length - 1] !== arr[i]) answer.push(arr[i]);
+  }
+  return answer;
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/67283770/142642277-2d0d493c-2004-40cb-9e0d-6430e1cf8cf1.png" alt="image"></p>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(arr) {
+  return arr.filter((el, index) =&gt; el !== arr[index + 1]);
+}
+</code></pre>
+<p><img src="https://user-images.githubusercontent.com/67283770/142642400-9c370a4d-f12e-444e-8ead-2f92ec0e1704.png" alt="image"></p>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
@@ -298,104 +1601,85 @@
     </entry>
     <entry>
         <title type="html"><![CDATA[[프로그래머스 lv1] [1차] 비밀지도]]></title>
-        <id>[프로그래머스-lv1]-[1차]-비밀지도</id>
+        <id>https://seobie.github.io/algorithms/[프로그래머스-lv1]-[1차]-비밀지도</id>
         <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-[1차]-비밀지도"/>
         <updated>2021-11-16T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[2018 KAKAO BLIND RECRUITMENT \> [1차] 비밀지도]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level1" term="level1"/>
-        <category label="kakao" term="kakao"/>
-        <category label="카카오" term="카카오"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv1] 두 개 뽑아서 더하기]]></title>
-        <id>[프로그래머스-lv1]-두-개-뽑아서-더하기</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-두-개-뽑아서-더하기"/>
-        <updated>2021-11-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[월간 코드 챌린지 시즌1 \> 두 개 뽑아서 더하기]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level1" term="level1"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv1] 음양 더하기]]></title>
-        <id>[프로그래머스-lv1]-음양-더하기</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-음양-더하기"/>
-        <updated>2021-11-15T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[월간 코드 챌린지 시즌2 \> 음양 더하기]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level1" term="level1"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv2] 기능개발]]></title>
-        <id>[프로그래머스-lv2]-기능개발</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv2]-기능개발"/>
-        <updated>2021-11-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[스택/큐 \> 기능개발]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level2" term="level2"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv1] 숫자 문자열과 영단어]]></title>
-        <id>[프로그래머스-lv1]-숫자-문자열과-영단어</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-숫자-문자열과-영단어"/>
-        <updated>2021-11-12T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[2021 카카오 채용연계형 인턴십 \> 숫자 문자열과 영단어]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level1" term="level1"/>
-        <category label="kakao" term="kakao"/>
-        <category label="카카오" term="카카오"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv1] 로또의 최고 순위와 최저 순위]]></title>
-        <id>[프로그래머스-lv1]-로또의-최고-순위와-최저-순위</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-로또의-최고-순위와-최저-순위"/>
-        <updated>2021-11-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[2021 Dev-Matching: 웹 백엔드 개발자(상반기) > 로또의 최고 순위와 최저 순위]]></summary>
-        <author>
-            <name>이영섭</name>
-            <uri>https://github.com/seobie</uri>
-        </author>
-        <category label="javascript" term="javascript"/>
-        <category label="algorithm" term="algorithm"/>
-        <category label="programmers" term="programmers"/>
-        <category label="level1" term="level1"/>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[[프로그래머스 lv1] 신규 아이디 추천]]></title>
-        <id>[프로그래머스-lv1]-신규-아이디-추천</id>
-        <link href="https://seobie.github.io/algorithms/[프로그래머스-lv1]-신규-아이디-추천"/>
-        <updated>2021-11-09T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[2021 KAKAO BLIND RECRUITMENT > 신규 아이디 추천]]></summary>
+        <content type="html"><![CDATA[<p>2018 KAKAO BLIND RECRUITMENT &gt; [1차] 비밀지도</p>
+<h2 id="문제-설명">문제 설명</h2>
+<p>네오는 평소 프로도가 비상금을 숨겨놓는 장소를 알려줄 비밀지도를 손에 넣었다. 그런데 이 비밀지도는 숫자로 암호화되어 있어 위치를 확인하기 위해서는 암호를 해독해야 한다. 다행히 지도 암호를 해독할 방법을 적어놓은 메모도 함께 발견했다.</p>
+<ol>
+<li>지도는 한 변의 길이가 <code>n</code>인 정사각형 배열 형태로, 각 칸은 "공백"(" ") 또는 "벽"("#") 두 종류로 이루어져 있다.</li>
+<li>전체 지도는 두 장의 지도를 겹쳐서 얻을 수 있다. 각각 "지도 1"과 "지도 2"라고 하자. 지도 1 또는 지도 2 중 어느 하나라도 벽인 부분은 전체 지도에서도 벽이다. 지도 1과 지도 2에서 모두 공백인 부분은 전체 지도에서도 공백이다.</li>
+<li>"지도 1"과 "지도 2"는 각각 정수 배열로 암호화되어 있다.</li>
+<li>암호화된 배열은 지도의 각 가로줄에서 벽 부분을 <code>1</code>, 공백 부분을 <code>0</code>으로 부호화했을 때 얻어지는 이진수에 해당하는 값의 배열이다.</li>
+</ol>
+<p><img src="http://t1.kakaocdn.net/welcome2018/secret8.png" alt="image"></p>
+<p>네오가 프로도의 비상금을 손에 넣을 수 있도록, 비밀지도의 암호를 해독하는 작업을 도와줄 프로그램을 작성하라.</p>
+<hr>
+<h2 id="입력-형식">입력 형식</h2>
+<p>입력으로 지도의 한 변 크기 <code>n</code>과 2개의 정수 배열 <code>arr1</code>, <code>arr2</code>가 들어온다.</p>
+<ul>
+<li>1 ≦ <code>n</code> ≦ 16</li>
+<li><code>arr1</code>, <code>arr2</code>는 길이 <code>n</code>인 정수 배열로 주어진다.</li>
+<li>정수 배열의 각 원소 <code>x</code>를 이진수로 변환했을 때의 길이는 <code>n</code> 이하이다. 즉, 0 ≦ <code>x</code> ≦ 2n - 1을 만족한다.</li>
+</ul>
+<hr>
+<h2 id="출력-형식">출력 형식</h2>
+<p>원래의 비밀지도를 해독하여 <code>'#'</code>, <code>공백</code>으로 구성된 문자열 배열로 출력하라.</p>
+<h2 id="입출력-예제">입출력 예제</h2>
+<table><thead><tr><th style="text-align:center">매개변수</th><th>값</th></tr></thead><tbody><tr><td style="text-align:center">n</td><td>5</td></tr><tr><td style="text-align:center">arr1</td><td>[9, 20, 28, 18, 11]</td></tr><tr><td style="text-align:center">arr2</td><td>[30, 1, 21, 17, 28]</td></tr><tr><td style="text-align:center">출력</td><td>["#####","# # #", "### #", "# ##", "#####"]</td></tr></tbody></table>
+<table><thead><tr><th style="text-align:center">매개변수</th><th>값</th></tr></thead><tbody><tr><td style="text-align:center">n</td><td>6</td></tr><tr><td style="text-align:center">arr1</td><td>[46, 33, 33 ,22, 31, 50]</td></tr><tr><td style="text-align:center">arr2</td><td>[27 ,56, 19, 14, 14, 10]</td></tr><tr><td style="text-align:center">출력</td><td>["######", "### #", "## ##", " #### ", " #####", "### # "]</td></tr></tbody></table>
+<h2 id="내가-작성한-답">내가 작성한 답</h2>
+<pre><code class="language-js">function solution(n, arr1, arr2) {
+  const map1 = arr1.map((num) =&gt; num.toString(2));
+  const map2 = arr2.map((num) =&gt; num.toString(2));
+
+  const map3 = map1.map((number, index) =&gt;
+    (Number(number) + Number(map2[index])).toString().replace(/2/g, '1')
+  );
+  return map3.map((num) =&gt;
+    num.padStart(n, 0).replace(/1/g, '#').replace(/0/g, ' ')
+  );
+}
+</code></pre>
+<h3 id="좋아요를-가장-많이-받은-답">좋아요를 가장 많이 받은 답</h3>
+<pre><code class="language-js">function solution(n, arr1, arr2) {
+  return arr1.map((v, i) =&gt;
+    addZero(n, (v | arr2[i]).toString(2)).replace(/1|0/g, (a) =&gt;
+      +a ? '#' : ' '
+    )
+  );
+}
+
+const addZero = (n, s) =&gt; {
+  return '0'.repeat(n - s.length) + s;
+};
+</code></pre>
+<pre><code class="language-js">var solution = (n, a, b) =&gt;
+  a.map((a, i) =&gt;
+    (a | b[i]).toString(2).padStart(n, 0).replace(/0/g, ' ').replace(/1/g, '#')
+  );
+</code></pre>
+<h3 id="내장함수-사용-하지-않고-2진수-변환">내장함수 사용 하지 않고 2진수 변환</h3>
+<pre><code class="language-js">function solution(n, arr1, arr2) {
+  let num1, num2, s;
+  let answer = [];
+  //manually turning decimals to binaries cos i can!
+  for (let i = 0; i &lt; n; i++) {
+    num1 = arr1[i];
+    num2 = arr2[i];
+    s = '';
+    for (let j = 0; j &lt; n; j++) {
+      s = (num1 % 2) + (num2 % 2) ? '#' + s : ' ' + s;
+      num1 = Math.floor(num1 / 2);
+      num2 = Math.floor(num2 / 2);
+    }
+    answer.push(s);
+  }
+  return answer;
+}
+</code></pre>]]></content>
         <author>
             <name>이영섭</name>
             <uri>https://github.com/seobie</uri>
