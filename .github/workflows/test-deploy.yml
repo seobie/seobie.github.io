@@ -4,6 +4,7 @@ on:
   pull_request:
     branches:
       - main
+      - develop
     # Review gh actions docs if you want to further define triggers, paths, etc
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
@@ -12,14 +13,41 @@ jobs:
     name: Test deployment
     runs-on: ubuntu-latest
     steps:
+      - name: Workflow start notification
+        uses: 8398a7/action-slack@v3
+        with:
+          status: custom
+          author_name: action bot - deployment
+          fields: job
+          mention: here
+          custom_payload: |
+            {
+              attachments: [{
+                color: 'good',
+                text: `Workflow has started. Job: ${process.env.AS_JOB}`,
+              }]
+            }
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        if: always()
+
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v3
         with:
           node-version: 16.x
           cache: yarn
 
+      - name: Cache node modules
+        uses: actions/cache@v2
+        id: cache
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+        if: steps.cache.outputs.cache-hit != 'true'
+
       - name: Test build website
         run: yarn build
 
