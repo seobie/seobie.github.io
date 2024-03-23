@@ -16,17 +16,18 @@ jobs:
       - name: Workflow start notification
         uses: 8398a7/action-slack@v3
         with:
-          status: custom
+          status: ${{ job.status }}
           author_name: action bot - deployment
-          fields: job
+          fields: repo,message,commit,author,action,eventName,ref,workflow # selectable (default: repo,message)
           mention: here
-          custom_payload: |
-            {
-              attachments: [{
-                color: 'good',
-                text: `Workflow has started. Job: ${process.env.AS_JOB}`,
-              }]
-            }
+          if_mention: failure,cancelled
+          # custom_payload: |
+          #   {
+          #     attachments: [{
+          #       color: 'good',
+          #       text: `Workflow has started. Job: ${github.job}`,
+          #     }]
+          #   }
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         if: always()
