@@ -64,7 +64,6 @@ const config = {
           // },
           { label: "Blog", to: "/blog", position: "left" },
           { label: "Algorithms", to: "/algorithms", position: "left" },
-          // { label: 'Algorithms', to: '/algorithms', position: 'left' },
           { label: "Tags", to: "/blog/tags", position: "left" },
           { label: "Archive", to: "/blog/archive", position: "left" },
           // {
